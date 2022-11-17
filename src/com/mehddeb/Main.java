@@ -1,9 +1,6 @@
 package com.mehddeb;
 
-import java.util.Random;
-import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -60,13 +57,16 @@ public class Main {
                     }
 
                 }, 1000, 1000);
-            } else {
                 System.out.println("Choisissez votre activité !");
             }
+
             if (choice == 0){
-                Runnable GoodBye = () -> {
-                    System.out.println("Goobbye, See you later ...");
-                };
+                List<Integer> counter = new ArrayList<>(){};
+                counter.add(3);
+                counter.add(6);
+                counter.add(9);
+                counter.forEach(System.out::println);
+                Runnable GoodBye = (() -> System.out.println("Goobbye, See you later ..."));
                 GoodBye.run();
                 System.exit(1);
             }
