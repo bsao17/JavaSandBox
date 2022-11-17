@@ -8,15 +8,12 @@ import java.util.TimerTask;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Bonjour taper 1 pour commencer à jouer et 1 à la fin de chaque partie pour continuer !");
-        byte playing = scanner.nextByte();
         System.out.println("**** Pour choisir le Chronométre tapez le numéro 1 ****");
         System.out.println("**** Pour choisir la calculatrice tapez le numéro 2 ****");
         System.out.println("**** Pour lancer un dè après 2 secondes tapez le numéro 3 ****");
         System.out.println("**** C'est à vous : ");
 
-        while(playing == 1){
-
+        while(true){
             int choice = scanner.nextInt();
 
             if(choice == 1)
@@ -26,6 +23,7 @@ public class Main {
                 CustomTimer.time = scanner.nextInt();
                 Timer timer = new Timer();
                 timer.schedule(customTimer, 1000, 1000);
+                System.out.println("Choisissez votre activité !");
             }
             if (choice == 2)
             {
@@ -41,6 +39,9 @@ public class Main {
                         System.out.println("Le résultat est négatif !");
                     }
                 });
+                System.out.println("Choisissez votre activité !");
+            } else {
+                System.out.println("Choisissez votre activité !");
             }
             if(choice == 3) {
                 Timer timer = new Timer();
@@ -52,20 +53,24 @@ public class Main {
                             System.out.println( time + " secondes ");
                         } else {
                             nexInt(1, 6);
+                            System.out.println("Choisissez votre activité !");
                             cancel();
                         }
                         time--;
                     }
 
                 }, 1000, 1000);
+            } else {
+                System.out.println("Choisissez votre activité !");
             }
             if (choice == 0){
+                Runnable GoodBye = () -> {
+                    System.out.println("Goobbye, See you later ...");
+                };
+                GoodBye.run();
                 System.exit(1);
             }
         }
-
-
-
     }
 
     public static void nexInt(int a, int b){
